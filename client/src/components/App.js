@@ -1,19 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
+import * as actions from "../actions";
 import Header from "./Header";
 import Landing from "./Landing";
 
-const App = () => {
-  return (
-    <div>
-      <BrowserRouter>
-        <div>
-          <Header />
-          <Route exact path="/" component={Landing} />
-        </div>
-      </BrowserRouter>
-    </div>
-  );
-};
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
 
-export default App;
+  render() {
+    return (
+      <div className="container">
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Route exact path="/" component={Landing} />
+          </div>
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
+
+export default connect(null, actions)(App);
