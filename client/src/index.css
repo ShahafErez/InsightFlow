@@ -35,6 +35,11 @@ body {
 }
 
 .payment button,
-.payment button:hover {
+.btn-floating {
   background-color: #e56500;
+}
+
+.payment button:hover,
+.btn-floating:hover {
+  background-color: #f48734;
 }
