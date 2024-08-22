@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import { thunk as reduxThunk } from "redux-thunk";
 import App from "./components/App";
+import "./index.css";
 import reducers from "./reducers";
 
 const element = document.getElementById("root");

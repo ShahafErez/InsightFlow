@@ -1,7 +1,7 @@
 const Landing = () => (
   <div style={{ textAlign: "center" }}>
-    <h1>InsightFlow!</h1>
-    Collect feedback from your users
+    <img src="/logo.png" alt="Logo" height="200px" />
+    <div>Collect feedback from your users</div>
   </div>
 );
 

@@ -18,7 +18,7 @@ class Header extends Component {
 
       default:
         return [
-          <li key="1">
+          <li key="1" className="payment">
             <Payment />
           </li>,
           <li key="2" style={{ margin: "0 10px" }}>
@@ -33,10 +33,10 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
+      <nav className="navbar">
         <div className="nav-wrapper">
-          <Link to={this.props.auth ? "/surveys" : "/"} className="brand-logo">
-            Logo
+          <Link to={this.props.auth ? "/surveys" : "/"} className="logo">
+            <img src="/logo.png" alt="Logo" />
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.renderContent()}
