@@ -3,9 +3,9 @@ body {
 }
 
 .container {
-  width: 100%;
   background-color: #ffffff;
   height: 100vh;
+  position: relative;
 }
 
 .navbar {
@@ -31,10 +31,25 @@ body {
 
 .navbar,
 .navbar a {
-  color: #e56500;
+  color: black;
 }
 
 .payment button,
-.payment button:hover {
+.btn-floating,
+.btn-flat {
+  color: white;
   background-color: #e56500;
+}
+
+.payment button:hover,
+.payment button:active,
+.btn-floating:hover,
+.btn-floating:active {
+  background-color: #f48734;
+}
+
+.fixed-action-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
