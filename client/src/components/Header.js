@@ -22,7 +22,8 @@ class Header extends Component {
             <Payment />
           </li>,
           <li key="2" style={{ margin: "0 10px" }}>
-            Credits: {this.props.auth.credits}
+            Credits:{" "}
+            <span style={{ color: "#e56500" }}>{this.props.auth.credits}</span>
           </li>,
           <li key="3">
             <a href="/api/logout">Logout</a>
