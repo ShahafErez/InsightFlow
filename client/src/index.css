@@ -37,6 +37,7 @@ body {
 .payment button,
 .btn-floating,
 .btn-flat {
+  color: white;
   background-color: #e56500;
 }
 
