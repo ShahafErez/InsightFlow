@@ -1,5 +1,5 @@
 <p align="center">
-<img src="client/public/logo.png" alt="InsightFlow Logo" width="350px"/>
+<img src="client/public/header-and-logo.png" alt="InsightFlow Logo"/>
 </p>
 
 # InsightFlow
