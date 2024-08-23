@@ -34,7 +34,7 @@ class Landing extends Component {
   render() {
     return (
       <div style={{ textAlign: "center" }}>
-        <img src="/logo.png" alt="Logo" height="200px" />
+        <img src="/logo.png" alt="Logo" height="150px" />
         <h2>Collect feedback from your users</h2>
         {this.renderAddSurvey()}
         {this.rednerViewingSurveys()}
