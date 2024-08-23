@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSurveys } from "../../actions";
@@ -19,8 +18,8 @@ class SurveyList extends Component {
               Sent On: {new Date(survey.dateSent).toLocaleDateString()}
             </p>
             <div className="card-action">
-              <a>Yes: {survey.yes}</a>
-              <a>No: {survey.no}</a>
+              <span className="users-response">Yes: {survey.yes}</span>
+              <span className="users-response">No: {survey.no}</span>
             </div>
           </div>
         </div>
