@@ -36,7 +36,7 @@ class Header extends Component {
     return (
       <nav className="navbar">
         <div className="nav-wrapper">
-          <Link to={this.props.auth ? "/surveys" : "/"} className="logo">
+          <Link to={"/"} className="logo">
             <img src="/logo.png" alt="Logo" />
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">

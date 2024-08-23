@@ -2,6 +2,16 @@ body {
   background-image: url("../public/background.png");
 }
 
+h2 {
+  font-size: 24px;
+  margin: 3px;
+}
+h1 {
+  font-size: 30px;
+  margin: 15px;
+  text-align: center;
+}
+
 .container {
   background-color: #ffffff;
   height: 100vh;
@@ -34,22 +44,29 @@ body {
   color: black;
 }
 
-.payment button,
-.btn-floating,
-.btn-flat {
+.btn {
   color: white;
   background-color: #e56500;
 }
 
-.payment button:hover,
-.payment button:active,
-.btn-floating:hover,
-.btn-floating:active {
+.btn a {
+  color: white;
+}
+
+.btn:hover,
+.btn:active {
   background-color: #f48734;
 }
 
-.fixed-action-btn {
+.add-survey {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 100px;
+  right: 100px;
+}
+
+.users-response {
+  padding: 0px 5px;
+  color: #e56500;
+  font-size: 18px;
+  margin: 0px;
 }

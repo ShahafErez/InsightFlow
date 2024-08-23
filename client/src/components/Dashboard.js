@@ -3,10 +3,10 @@ import SurveyList from "./surveys/SurveyList";
 const Dashboard = () => {
   return (
     <div>
-      Dashboard
+      <h1>All Surveys</h1>
       <SurveyList />
-      <div className="fixed-action-btn">
-        <Link to={"/surveys/new"} className="btn-floating btn-large">
+      <div className=" fixed-action-btn add-survey">
+        <Link to={"/surveys/new"} className="btn btn-floating btn-large ">
           <i className="material-icons">add</i>
         </Link>
       </div>
