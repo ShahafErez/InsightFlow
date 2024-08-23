@@ -33,7 +33,6 @@ class SurveyList extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("!! state ", state);
   return { surveys: state.surveys };
 }
 
