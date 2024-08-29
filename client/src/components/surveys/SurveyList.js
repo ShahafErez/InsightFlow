@@ -4,27 +4,22 @@ import { fetchSurveys } from "../../slices/surveysSlice";
 import SurveyCard from "./SurveyCard";
 
 export default function SurveyList() {
+  const surveysList = useSelector((state) => state.surveys.list);
   const dispatch = useDispatch();
-  const surveys = useSelector((state) => state.surveys);
 
   useEffect(() => {
     dispatch(fetchSurveys());
   }, [dispatch]);
 
-  if (!surveys || surveys.length === 0) {
-    return <p>No surveys available.</p>;
-  }
-
   return (
     <div>
-      {surveys
-        .slice()
-        .reverse()
-        .map((survey) => (
-          <div key={survey._id}>
-            <SurveyCard survey={survey} />
-          </div>
-        ))}
+      {!surveysList || surveysList.length === 0 ? (
+        <p>You don't have serveys yet</p>
+      ) : (
+        surveysList.map((survey) => (
+          <SurveyCard key={survey._id} survey={survey} />
+        ))
+      )}
     </div>
   );
 }
