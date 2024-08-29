@@ -3,7 +3,7 @@ import SurveyList from "../surveys/SurveyList";
 
 export default function Dashboard() {
   return (
-    <div>
+    <div className="p-3">
       <h1>All Surveys</h1>
       <SurveyList />
       <div className="fixed-action-btn add-survey">

@@ -39,31 +39,31 @@ export default function SurveyFormCreate({ onNext, onDelete }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onNext)}>
-        {formFields.map(({ label, name }) => (
-          <SurveyField
-            key={name}
-            label={label}
-            {...register(name, {
-              required: "You must provide a value",
-              ...(name === "recipients" && {
-                validate: {
-                  validEmails: (value) =>
-                    validateEmails(value) === undefined ||
-                    "You must provide valid emails",
-                },
-              }),
-            })}
-            error={errors[name]?.message}
-            onChange={name === "recipients" ? handleRecipientsChange : null}
-          />
-        ))}
-        <button onClick={onDelete}>Cancel</button>
-        <button className="btn btn-flat right" type="submit">
-          Next
-        </button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit(onNext)}>
+      {formFields.map(({ label, name }) => (
+        <SurveyField
+          key={name}
+          label={label}
+          {...register(name, {
+            required: "You must provide a value",
+            ...(name === "recipients" && {
+              validate: {
+                validEmails: (value) =>
+                  validateEmails(value) === undefined ||
+                  "You must provide valid emails",
+              },
+            }),
+          })}
+          error={errors[name]?.message}
+          onChange={name === "recipients" ? handleRecipientsChange : null}
+        />
+      ))}
+      <button className="btn btn-secondary" onClick={onDelete}>
+        Cancel
+      </button>
+      <button className="btn btn-primary float-end" type="submit">
+        Next
+      </button>
+    </form>
   );
 }

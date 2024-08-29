@@ -12,12 +12,14 @@ export default function SurveyList() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       {!surveysList || surveysList.length === 0 ? (
         <p>You don't have serveys yet</p>
       ) : (
         surveysList.map((survey) => (
-          <SurveyCard key={survey._id} survey={survey} />
+          <div class="col">
+            <SurveyCard key={survey._id} survey={survey} />
+          </div>
         ))
       )}
     </div>
