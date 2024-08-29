@@ -1,6 +1,8 @@
+const CustomErrors = require("../utils/CustomErrors");
+
 module.exports = (req, res, next) => {
   if (req.user.credits < 1) {
-    return res.statue(403).send({ error: "Not enough credits" });
+    throw new CustomErrors.Forbidden("User does not have enough credits");
   }
   next();
 };

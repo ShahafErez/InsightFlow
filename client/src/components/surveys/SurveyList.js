@@ -17,8 +17,8 @@ export default function SurveyList() {
         <p>You don't have serveys yet</p>
       ) : (
         surveysList.map((survey) => (
-          <div className="col">
-            <SurveyCard key={survey._id} survey={survey} />
+          <div className="col" key={survey._id}>
+            <SurveyCard survey={survey} />
           </div>
         ))
       )}

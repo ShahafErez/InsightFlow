@@ -11,6 +11,18 @@ class BadUserInput extends CustomErrors {
   }
 }
 
+class Forbidden extends CustomErrors {
+  constructor(message) {
+    super(403, message);
+  }
+}
+
+class Unauthorized extends CustomErrors {
+  constructor(message) {
+    super(401, message);
+  }
+}
+
 class NotFound extends CustomErrors {
   constructor(message) {
     super(404, message);
@@ -28,4 +40,6 @@ module.exports = {
   ResourceAlreadyExists,
   NotFound,
   BadUserInput,
+  Forbidden,
+  Unauthorized,
 };
