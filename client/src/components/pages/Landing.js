@@ -35,7 +35,14 @@ export default function Landing() {
           </Link>
         </button>
       ) : (
-        <a href="/auth/google">View All Surveys</a>
+        <button type="button" className="btn btn-primary">
+          <a
+            href="/auth/google"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            View All Surveys
+          </a>
+        </button>
       )}
     </div>
   );
