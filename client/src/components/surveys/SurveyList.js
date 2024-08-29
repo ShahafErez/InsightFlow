@@ -1,39 +1,27 @@
-import { Component } from "react";
-import { connect } from "react-redux";
-import { fetchSurveys } from "../../actions";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSurveys } from "../../slices/surveysSlice";
+import SurveyCard from "./SurveyCard";
 
-class SurveyList extends Component {
-  componentDidMount() {
-    this.props.fetchSurveys();
-  }
+export default function SurveyList() {
+  const surveysList = useSelector((state) => state.surveys.list);
+  const dispatch = useDispatch();
 
-  rednerSurvets() {
-    return this.props.surveys.reverse().map((survey) => {
-      return (
-        <div className="card " key={survey._id}>
-          <div className="card-content">
-            <span className="card-title">{survey.title}</span>
-            <p>{survey.body}</p>
-            <p className="right">
-              Sent On: {new Date(survey.dateSent).toLocaleDateString()}
-            </p>
-            <div className="card-action">
-              <span className="users-response">Yes: {survey.yes}</span>
-              <span className="users-response">No: {survey.no}</span>
-            </div>
+  useEffect(() => {
+    dispatch(fetchSurveys());
+  }, [dispatch]);
+
+  return (
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {!surveysList || surveysList.length === 0 ? (
+        <p>You don't have serveys yet</p>
+      ) : (
+        surveysList.map((survey) => (
+          <div class="col">
+            <SurveyCard key={survey._id} survey={survey} />
           </div>
-        </div>
-      );
-    });
-  }
-
-  render() {
-    return <div>{this.rednerSurvets()}</div>;
-  }
+        ))
+      )}
+    </div>
+  );
 }
-
-function mapStateToProps(state) {
-  return { surveys: state.surveys };
-}
-
-export default connect(mapStateToProps, { fetchSurveys })(SurveyList);

@@ -14,7 +14,7 @@ module.exports = (app) => {
     const surveys = await Survey.find({ _user: req.user.id }).select({
       recipients: false,
     });
-    res.send(surveys);
+    res.send(surveys.reverse());
   });
 
   app.post("/api/surveys/weebhooks", (req, res) => {

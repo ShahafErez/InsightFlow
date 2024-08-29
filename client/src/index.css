@@ -4,59 +4,26 @@ body {
 
 h2 {
   font-size: 24px;
-  margin: 3px;
 }
 h1 {
   font-size: 30px;
-  margin: 15px;
-  text-align: center;
 }
 
 .container {
   background-color: #ffffff;
   height: 100vh;
   position: relative;
+  padding: 0px;
 }
 
-.navbar {
-  background-color: #e5e5e5;
-  height: 60px;
-}
-
-.nav-wrapper {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: space-between;
-}
-.navbar .logo {
-  height: 80%;
-  margin-left: 10px;
-}
-
-.navbar .logo img {
-  height: 100%;
-  max-height: 100%;
-  display: block;
-}
-
-.navbar,
-.navbar a {
+.navbar-nav .nav-item .nav-link,
+.navbar-nav .nav-item {
   color: black;
 }
 
-.btn {
-  color: white;
-  background-color: #e56500;
-}
-
-.btn a {
-  color: white;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: #f48734;
+.navbar-nav .nav-item .dropdown-item a {
+  text-decoration: none;
+  color: black;
 }
 
 .add-survey {

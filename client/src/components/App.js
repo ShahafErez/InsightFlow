@@ -1,31 +1,33 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
-import * as actions from "../actions";
-import Dashboard from "./Dashboard";
-import Header from "./Header";
-import Landing from "./Landing";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { fetchUser } from "../slices/authSlice";
+import Navbar from "./Navbar";
+import Dashboard from "./pages/Dashboard";
+import Landing from "./pages/Landing";
+import Register from "./Register";
 import SurveyNew from "./surveys/SurveyNew";
 
-class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+export default function App() {
+  const dispatch = useDispatch();
 
-  render() {
-    return (
-      <div className="container">
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Dashboard} />
-            <Route exact path="/surveys/new" component={SurveyNew} />
-          </div>
-        </BrowserRouter>
-      </div>
-    );
-  }
+  useEffect(() => {
+    dispatch(fetchUser()); // Fetch user when component mounts
+  }, [dispatch]);
+
+  return (
+    <div className="container">
+      <BrowserRouter>
+        <div>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Landing />} />
+            <Route exact path="/surveys" element={<Dashboard />} />
+            <Route exact path="/surveys/new" element={<SurveyNew />} />
+            <Route exact path="/register" element={<Register />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 }
-
-export default connect(null, actions)(App);
