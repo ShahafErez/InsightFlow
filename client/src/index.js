@@ -1,7 +1,11 @@
-import "materialize-css/dist/css/materialize.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./components/App";
+import "./custom-bootstrap.scss";
 import "./index.css";
 import store from "./store/index";
 

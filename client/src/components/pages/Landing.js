@@ -8,24 +8,33 @@ export default function Landing() {
   const renderAddSurvey = () => (
     <div className="btn btn-floating btn-large add-survey">
       {auth ? (
-        <Link to="/surveys/new">
-          <i className="material-icons">add</i>
-        </Link>
+        <Link to="/surveys/new">{addButton()}</Link>
       ) : (
-        // todo- change to register component
-        <a href="/auth/google">
-          <i className="material-icons">add</i>
-        </a>
+        <a href="/auth/google">{addButton()}</a>
       )}
     </div>
   );
 
+  function addButton() {
+    return (
+      <button className="btn btn-primary rounded-circle btn-lg">
+        <i className="bi bi-plus" style={{ fontSize: "1.5rem" }}></i>
+      </button>
+    );
+  }
+
   const renderViewingSurveys = () => (
     <div className="btn" style={{ marginTop: "30px" }}>
       {auth ? (
-        <Link to="/surveys">View All Surveys</Link>
+        <button type="button" className="btn btn-primary">
+          <Link
+            to="/surveys"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            View All Surveys
+          </Link>
+        </button>
       ) : (
-        // todo- change to register component
         <a href="/auth/google">View All Surveys</a>
       )}
     </div>

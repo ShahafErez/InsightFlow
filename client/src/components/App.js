@@ -5,6 +5,7 @@ import { fetchUser } from "../slices/authSlice";
 import Navbar from "./Navbar";
 import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing";
+import Register from "./Register";
 import SurveyNew from "./surveys/SurveyNew";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
             <Route exact path="/" element={<Landing />} />
             <Route exact path="/surveys" element={<Dashboard />} />
             <Route exact path="/surveys/new" element={<SurveyNew />} />
+            <Route exact path="/register" element={<Register />} />
           </Routes>
         </div>
       </BrowserRouter>

@@ -8,7 +8,9 @@ export default function Dashboard() {
       <SurveyList />
       <div className="fixed-action-btn add-survey">
         <Link to="/surveys/new" className="btn btn-floating btn-large">
-          <i className="material-icons">add</i>
+          <button className="btn btn-primary rounded-circle btn-lg">
+            <i className="bi bi-plus" style={{ fontSize: "1.5rem" }}></i>
+          </button>
         </Link>
       </div>
     </div>
