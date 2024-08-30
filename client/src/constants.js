@@ -1,0 +1,1 @@
+export const DEFAULT_CREDITS_AMOUNT_CENTES = 500;
