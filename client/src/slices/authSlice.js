@@ -20,15 +20,15 @@ export const handleToken = createAsyncThunk(
   }
 );
 
+// Logout current user
+export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
+  await axios.post("/api/auth/logout");
+});
+
 const authSlice = createSlice({
   name: "auth",
   initialState: null,
-  reducers: {
-    logoutUser(state) {
-      // TODO- check logout user logic
-      return null;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchUser.fulfilled, (state, action) => {
@@ -36,10 +36,11 @@ const authSlice = createSlice({
       })
       .addCase(handleToken.fulfilled, (state, action) => {
         return action.payload;
+      })
+      .addCase(logoutUser.fulfilled, (state) => {
+        return null;
       });
   },
 });
-
-export const { logoutUser } = authSlice.actions;
 
 export default authSlice.reducer;
