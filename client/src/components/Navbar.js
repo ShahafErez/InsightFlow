@@ -1,12 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Link } from "react-router-dom";
-
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logoutUser } from "../slices/authSlice";
 import Payment from "./Payment";
 
 export default function Navbar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
+
+  function handleLogout() {
+    navigate("/");
+    dispatch(logoutUser());
+  }
 
   function renderLoggedInUser() {
     return (
@@ -33,9 +40,9 @@ export default function Navbar() {
           <span style={{ color: "#e56500" }}>{auth?.credits || 0}</span>
         </li>
         <li className="nav-item" style={{ marginLeft: "20px" }}>
-          <a href="/api/logout" className="nav-link">
+          <button className="nav-link" onClick={handleLogout}>
             Logout
-          </a>
+          </button>
         </li>
       </ul>
     );
