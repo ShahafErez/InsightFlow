@@ -4,7 +4,7 @@ import { DEFAULT_CREDITS_AMOUNT_CENTES } from "../constants";
 
 // Fetch current user
 export const fetchUser = createAsyncThunk("auth/fetchUser", async () => {
-  const { data } = await axios.get("/api/current_user");
+  const { data } = await axios.get("/api/auth/current_user");
   return data;
 });
 
