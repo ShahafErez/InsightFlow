@@ -24,4 +24,12 @@ module.exports = (app) => {
   app.get("/api/auth/current_user", (req, res, next) => {
     usersController.getCurrentUser(req, res, next);
   });
+
+  app.post("/api/auth/register", (req, res, next) => {
+    usersController.register(req, res, next);
+  });
+
+  app.post("/api/auth/login", (req, res, next) => {
+    usersController.login(req, res, next);
+  });
 };

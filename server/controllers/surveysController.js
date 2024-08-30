@@ -3,7 +3,8 @@ const surveyService = require("../services/surveyService");
 const surveysController = {
   getSurveys: async (req, res, next) => {
     try {
-      const surveys = await surveyService.getSurveysByUser(req.user.id);
+      const userId = req.user?.id || req.session.user?._id;
+      const surveys = await surveyService.getSurveysByUser(userId);
       res.status(200).send(surveys.reverse());
     } catch (err) {
       next(err);
@@ -21,8 +22,9 @@ const surveysController = {
 
   addNewSurvey: async (req, res, next) => {
     try {
-      await surveyService.addNewSurvey(req.body, req.user.id);
-      req.user.credits -= 1;
+      const userId = req.user?.id || req.session.user?._id;
+      await surveyService.addNewSurvey(req.body, userId);
+      req.user ? (req.user.credits -= 1) : (req.session.user.credits -= 1);
       const user = await req.user.save();
       res.status(201).send(user);
     } catch (err) {

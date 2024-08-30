@@ -1,9 +1,9 @@
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../slices/authSlice";
+import { loginUser } from "../slices/authSlice";
 
-export default function Register() {
+export default function Login() {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,12 +14,12 @@ export default function Register() {
     setResponseMessage("");
 
     try {
-      const resultAction = await dispatch(registerUser({ username, password }));
+      const resultAction = await dispatch(loginUser({ username, password }));
       const result = unwrapResult(resultAction); // Unwrap the result to get the server response
       setResponseMessage(result.message || "Registration successful!");
     } catch (err) {
       setResponseMessage(
-        err.message.message || "Failed to register. Please try again."
+        err.message.message || "Failed to login. Please try again."
       );
     }
   }

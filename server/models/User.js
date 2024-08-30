@@ -7,6 +7,11 @@ const userSchema = new Schema({
     type: Number,
     default: 0,
   },
+  username: {
+    type: String,
+    unique: true,
+  },
+  password: String,
 });
 
 mongoose.model("users", userSchema);
