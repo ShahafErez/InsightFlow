@@ -11,7 +11,7 @@ const {
 /**
  Registering a new user and saving it to the database
  */
-async function register(username, password) {
+async function register({ username, password }) {
   if (!username || !password) {
     throw new BadUserInput("Invalid username or password.");
   }
@@ -51,7 +51,7 @@ async function hashPassword(userPassword) {
 /**
  * Login the user by checking if the provided username and password are correct using Mongoose
  */
-async function login(username, userInputPassword) {
+async function login({ username, password: userInputPassword }) {
   if (!username || !userInputPassword) {
     throw new BadUserInput("Username and password are required.");
   }
@@ -69,7 +69,7 @@ async function login(username, userInputPassword) {
     throw new BadUserInput("Password is incorrect");
   }
 
-  return user._id;
+  return user;
 }
 
 module.exports = { register, login };

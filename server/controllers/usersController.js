@@ -19,12 +19,10 @@ exports.getCurrentUser = (req, res, next) => {
 
 exports.register = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
-    const userId = await userService.register(username, password);
-    req.session.userId = userId;
-    res
-      .status(201)
-      .json({ message: `User ${username} registered successfully.` });
+    const user = await userService.register(req.body);
+    req.session.user = user;
+    req.user = user;
+    res.status(201).json({ message: "Registered successfully." });
   } catch (error) {
     next(error);
   }
@@ -32,12 +30,13 @@ exports.register = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
-    const userId = await userService.login(username, password);
-    req.session.userId = userId;
-    res
-      .status(200)
-      .json({ message: `'User ${username} logged in successfully.'` });
+    const user = await userService.login(req.body);
+    req.session.user = user;
+    req.user = user;
+    console.log("???", req.user);
+    console.log("userId", user);
+
+    res.status(200).json({ message: "Logged in successfully." });
   } catch (error) {
     next(error);
   }

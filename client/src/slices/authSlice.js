@@ -8,6 +8,30 @@ export const fetchUser = createAsyncThunk("auth/fetchUser", async () => {
   return data;
 });
 
+// Regsiter user
+export const registerUser = createAsyncThunk(
+  "auth/registerUser",
+  async ({ username, password }) => {
+    const { data } = await axios.post("/api/auth/register", {
+      username: username,
+      password: password,
+    });
+    return data;
+  }
+);
+
+// Login user
+export const loginUser = createAsyncThunk(
+  "auth/loginUser",
+  async ({ username, password }) => {
+    const { data } = await axios.post("/api/auth/login", {
+      username: username,
+      password: password,
+    });
+    return data;
+  }
+);
+
 // Logout current user
 export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
   await axios.post("/api/auth/logout");
@@ -35,6 +59,12 @@ const authSlice = createSlice({
         return action.payload;
       })
       .addCase(handleToken.fulfilled, (state, action) => {
+        return action.payload;
+      })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        return action.payload;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
         return action.payload;
       })
       .addCase(logoutUser.fulfilled, (state) => {
