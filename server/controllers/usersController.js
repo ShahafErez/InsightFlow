@@ -1,4 +1,4 @@
-exports.logoutUser = (req, res, next) => {
+exports.logout = (req, res, next) => {
   try {
     req.logout();
     return res.status(200).json({ message: "Logged out successfully." });
