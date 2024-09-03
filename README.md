@@ -8,10 +8,9 @@ InsightFlow is a web application built with Node.js and React, designed to help 
 
 ## Features
 
-- **Google OAuth Authentication**: Securely authenticate users using their Google accounts.
-- **Email Functionality**: Create and send feedback request emails from the backend server.
-- **Stripe Payment Integration**: Accept and process credit card payments from users.
-- **MongoDB Integration**: Manage and communicate data between the MongoDB database and the React frontend application.
+- **Authentication**: Supports both Google OAuth and username/password authentication, providing secure login options for users.
+- **Email Functionality**: Create and send feedback request emails, and track client responses.
+- **Stripe Payment Integration**: Accept and process credit card payments.
 
 
 ## Installation
@@ -49,7 +48,7 @@ InsightFlow is a web application built with Node.js and React, designed to help 
 ## Running the Application
   ```bash
   cd server
-  npm sun dev
+  npm run dev
 ```
 
 ## License
